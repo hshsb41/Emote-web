@@ -3,181 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CKRPRO ULTIMATE HUB</title>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet">
+    <title>CKRPRO ULTIMATE PREMIUM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --p: #a855f7; /* Purple */
-            --bg: #ffffff;
-            --glass: rgba(255, 255, 255, 0.85);
-            --border: rgba(168, 85, 247, 0.2);
+            --primary: #a855f7;
+            --bg-body: #050505;
+            --card-bg: #111114;
+            --input-bg: #000000;
+            --text-main: #ffffff;
+            --text-dim: #777777;
+            --border: #222222;
         }
 
-        * { box-sizing: border-box; font-family: 'SF Pro Display', sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { 
+            box-sizing: border-box; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
 
         body {
-            background: #f4f4f9;
-            background-image: radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.1) 0, transparent 50%);
+            background: var(--bg-body);
             margin: 0;
-            padding: 10px;
+            padding: 25px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            color: var(--text-main);
         }
 
         .iphone-card {
             width: 100%;
-            max-width: 360px; /* Vertical Fit */
-            background: var(--glass);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 32px;
-            padding: 20px;
+            max-width: 400px;
+            background: var(--card-bg);
+            border-radius: 38px;
+            padding: 30px 22px;
             border: 1px solid var(--border);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
         }
 
-        h2 { 
-            text-align: center; color: var(--p); font-size: 22px; margin: 0 0 20px 0;
-            text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .banner-text {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .section {
-            background: rgba(255,255,255,0.5);
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(0,0,0,0.02);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 28px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
         }
 
-        label { font-size: 10px; font-weight: 600; color: #888; text-transform: uppercase; margin-left: 5px; }
+        /* Label Style: Bold, Sano, Capital */
+        .section-label {
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: block;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
 
         input {
             width: 100%;
-            padding: 12px 15px;
-            margin: 6px 0 10px 0;
-            border-radius: 14px;
-            border: 1px solid #e0e0e0;
-            outline: none;
-            transition: 0.3s;
-            font-size: 14px;
-            background: #fff;
-        }
-
-        input:focus { border-color: var(--p); box-shadow: 0 0 8px rgba(168, 85, 247, 0.15); }
-
-        .uid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-
-        button {
-            width: 100%;
-            padding: 15px;
+            padding: 16px;
             border-radius: 16px;
-            border: none;
-            background: var(--p);
-            color: white;
-            font-weight: 600;
+            border: 1.5px solid var(--border);
+            outline: none;
             font-size: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+            background: var(--input-bg);
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        button:active { transform: scale(0.96); opacity: 0.9; }
+        input:focus {
+            border-color: var(--primary);
+        }
 
-        /* Emote List Styles */
+        .uid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+        button.action-btn {
+            width: 100%;
+            padding: 18px;
+            border-radius: 20px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: 0.3s;
+        }
+
+        button.action-btn:active { transform: scale(0.96); }
+        .btn-danger { background: #ff4757 !important; }
+        .btn-join { background: #2e86de !important; }
+
         .emote-box {
-            max-height: 220px;
+            max-height: 160px;
             overflow-y: auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            padding: 10px;
-            background: #fff;
-            border-radius: 14px;
-            margin: 10px 0;
-            border: 1px solid #eee;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 12px;
+            background: var(--input-bg);
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
         }
 
         .e-item {
-            font-size: 10px;
-            padding: 6px 10px;
-            background: #f3e8ff;
-            border: 1px solid #e9d5ff;
-            border-radius: 8px;
+            font-size: 9px;
+            padding: 11px 4px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            text-align: center;
             cursor: pointer;
-            color: #7e22ce;
-            transition: 0.2s;
+            color: var(--text-dim);
+            font-weight: 800;
+            border: 1px solid var(--border);
+            text-transform: uppercase;
         }
 
-        .e-item:hover { background: var(--p); color: #fff; border-color: var(--p); }
-
-        #terminal {
-            width: 100%;
-            max-width: 360px;
-            background: #121212;
-            color: #d8b4fe;
-            padding: 15px;
-            border-radius: 20px;
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            margin-top: 15px;
-            min-height: 100px;
-            max-height: 150px;
-            overflow-y: auto;
-            border: 1px solid #333;
+        .e-item.active {
+            background: var(--primary);
+            color: white;
+            border-color: transparent;
         }
+
+        .dev-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+        .dev-footer span { color: var(--primary); }
     </style>
 </head>
 <body>
 
-<div class="iphone-card">
-    <h2>CKRPRO HUB</h2>
-
-    <div class="section">
-        <label>Invite 5 Player (Group)</label>
-        <input type="number" id="g_uid" placeholder="Target UID">
-        <button onclick="callApi('5', 'uid=' + document.getElementById('g_uid').value)">SEND 5 GROUP</button>
-    </div>
-
-    <div class="section">
-        <label>Lag Attack</label>
-        <input type="number" id="l_tc" placeholder="Team Code">
-        <button onclick="callApi('lag', 'tc=' + document.getElementById('l_tc').value)" style="background:#ef4444">START LAG</button>
-    </div>
-
-    <div class="section">
-        <label>Team Join & Emote</label>
-        <input type="number" id="tc" placeholder="Team Code">
-        
-        <div class="uid-grid">
-            <input type="number" id="u1" placeholder="UID 1">
-            <input type="number" id="u2" placeholder="UID 2">
-            <input type="number" id="u3" placeholder="UID 3">
-            <input type="number" id="u4" placeholder="UID 4">
+    <div class="iphone-card">
+        <div class="header">
+            <div class="banner-text">FF BOT WEBSITE AND EMOTE WEB</div>
         </div>
 
-        <label>Select Emote</label>
-        <div class="emote-box" id="eContainer"></div>
-        
-        <label>Emote ID (Auto-fill)</label>
-        <input type="number" id="eid" placeholder="9090XXXXX">
-        
-        <button onclick="sendEmoteFull()" style="background:#3b82f6">SEND EMOTE JOIN</button>
-    </div>
-</div>
+        <div class="section">
+            <span class="section-label">Auto Invite</span>
+            <input type="number" id="g_uid" placeholder="TARGET UID">
+            <button class="action-btn" id="btn-5" onclick="callApi('5', 'uid=' + document.getElementById('g_uid').value, 'btn-5')">SEND 5 INVITES</button>
+        </div>
 
-<div id="terminal">> System Online... Ready for commands.</div>
+        <div class="section">
+            <span class="section-label">Server Stress</span>
+            <input type="number" id="l_tc" placeholder="TEAM CODE">
+            <button class="action-btn btn-danger" id="btn-lag" onclick="callApi('lag', 'tc=' + document.getElementById('l_tc').value, 'btn-lag')">START LAG ATTACK</button>
+        </div>
+
+        <div class="section">
+            <span class="section-label">Advanced Join</span>
+            <input type="number" id="tc" placeholder="TEAM CODE" style="margin-bottom:12px">
+            
+            <div class="uid-grid">
+                <input type="number" id="u1" placeholder="UID 1">
+                <input type="number" id="u2" placeholder="UID 2">
+                <input type="number" id="u3" placeholder="UID 3">
+                <input type="number" id="u4" placeholder="UID 4">
+            </div>
+
+            <span class="section-label" style="margin-top:20px">Choose Animation</span>
+            <div class="emote-box" id="eContainer"></div>
+            
+            <span class="section-label">Selected Emote ID</span>
+            <input type="number" id="eid" placeholder="EMOTE ID">
+
+            <button class="action-btn btn-join" id="btn-join" onclick="sendEmoteFull()">EXECUTE JOINS</button>
+        </div>
+
+        <div class="dev-footer">
+            DEVELOPER : <span>CKRPRO</span>
+        </div>
+    </div>
 
 <script>
     const API_BASE = "https://emote-api-1-4rbj.onrender.com";
 
-    // Sabai Emotes Tapaile deko list anusar
     const emotesData = {
-        "p90": "909049010", "m60": "909051003", "mp5": "909033002", "groza": "909041005", "thompson_evo": "909038010",
-        "m10_red": "909039011", "mp40_blue": "909040010", "m10_green": "909000081", "xm8": "909000085", "ak": "909000063",
+        "p90": "909049010", "m60": "909051003", "mp5": "909033002", "groza": "909041005", "thompson": "909038010",
+        "m10 red": "909039011", "mp40 blue": "909040010", "m10 green": "909000081", "xm8": "909000085", "ak": "909000063",
         "mp40": "909000075", "m4a1": "909033001", "famas": "909000090", "scar": "909000068", "ump": "909000098",
-        "m18": "909035007", "fist": "909037011", "g18": "909038012", "an94": "909035012", "woodpecker": "909042008",
+        "m1887": "909035007", "fist": "909037011", "g18": "909038012", "an94": "909035012", "woodpecker": "909042008",
         "money": "909000055", "heart": "909000045", "rose": "909000010", "throne": "909000014", "pirate": "909000034",
         "car": "909000039", "lol": "909000002", "cobra": "909000072", "ghost": "909036001", "sholay": "909050020",
         "blade": "909050013", "hi": "909000001", "dab": "909000005", "chicken": "909000006", "dance": "909000008",
@@ -189,29 +221,36 @@
         "moneyrain": "909042002", "toiletman": "909042013", "kemusan": "909042018", "spidersense": "909040009", "nosweat": "909046008"
     };
 
-    // Populate Emotes
     const container = document.getElementById('eContainer');
     Object.keys(emotesData).sort().forEach(name => {
         let div = document.createElement('div');
         div.className = 'e-item';
-        div.innerText = name.toUpperCase();
+        div.innerText = name;
         div.onclick = () => {
             document.getElementById('eid').value = emotesData[name];
-            addLog("Selected Emote: " + name);
+            document.querySelectorAll('.e-item').forEach(el => el.classList.remove('active'));
+            div.classList.add('active');
         };
         container.appendChild(div);
     });
 
-    function addLog(msg) {
-        const t = document.getElementById('terminal');
-        t.innerHTML = `> ${msg}<br>${t.innerHTML}`;
-    }
+    async function callApi(end, params, btnId) {
+        const btn = document.getElementById(btnId);
+        const originalText = btn.innerText;
+        btn.innerText = "WAITING...";
+        btn.disabled = true;
 
-    async function callApi(end, params) {
-        addLog(`Executing /${end}...`);
-        fetch(`${API_BASE}/${end}?${params}`)
-            .then(() => addLog(`Success: ${end} sent!`))
-            .catch(() => addLog(`Error: API Offline`));
+        try {
+            const res = await fetch(`${API_BASE}/${end}?${params}`);
+            btn.innerText = res.ok ? "SUCCESS ✅" : "ERROR ❌";
+        } catch (e) {
+            btn.innerText = "OFFLINE ❌";
+        }
+
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }, 2000);
     }
 
     function sendEmoteFull() {
@@ -221,16 +260,12 @@
         const u2 = document.getElementById('u2').value;
         const u3 = document.getElementById('u3').value;
         const u4 = document.getElementById('u4').value;
-
-        if(!tc || !eid || !u1) return alert("TC, UID 1, and Emote ID required!");
-
-        let query = new URLSearchParams({ tc: tc, emote_id: eid, uid1: u1 });
+        if(!tc || !eid || !u1) return alert("Fill data!");
+        let query = new URLSearchParams({ tc, emote_id: eid, uid1: u1 });
         if(u2) query.append('uid2', u2);
         if(u3) query.append('uid3', u3);
         if(u4) query.append('uid4', u4);
-
-        addLog(`Sending Emote to UIDs...`);
-        callApi('join', query.toString());
+        callApi('join', query.toString(), 'btn-join');
     }
 </script>
 
